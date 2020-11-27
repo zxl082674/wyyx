@@ -1,0 +1,118 @@
+.main {
+    width: 1090px;
+    margin: 0 auto;
+    .hd {
+        width: 1090px;
+        height: 40px;
+        margin-top: 10px;
+        padding-left: 10px;
+        border: 1px solid #eaeaea;
+        line-height: 38px;
+        overflow: hidden;
+        span {
+            display: block;
+            height: 40px;
+            line-height: 40px;
+        }
+        span:nth-of-type(1) {
+            float: left;
+            width: 170px;
+            padding-left: 40px;
+            font-size: 14px;
+            color: #999999;
+            background: url(../img/1_gc.png) left center no-repeat;
+        }
+        span:nth-of-type(2) {
+            float: right;
+            width: 88px;
+            color: #fff;
+            background-color: #e36844;
+            text-align: center;
+        }
+    }
+    .car {
+        width: 100%;
+        margin-top: 10px;
+        margin-bottom: 40px;
+        border: 1px solid #ddd;
+        ul {
+            li {
+                margin: 10px 0;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                font-size: 14px;
+                padding: 0 40px;
+                background: #eaeccc;
+                h3 {
+                    color: #999999;
+                }
+                p {
+                    color: orangered;
+                }
+                em {
+                    color: #666666;
+                }
+                img {
+                    width: 98px;
+                    height: 98px;
+                }
+                .add,
+                .minus {
+                    display: inline-block;
+                    width: 20px;
+                    height: 20px;
+                    line-height: 20px;
+                    text-align: center;
+                    font-size: 18px;
+                    background-color: #cc9875;
+                    color: #fff;
+                    border-radius: 99999px;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+    .likeYou {
+        height: 395px;
+        border: 1px solid #ddd;
+        margin-bottom: 80px;
+        h2 {
+            padding-left: 22px;
+            line-height: 44px;
+            font-size: 17px;
+            font-weight: bolder;
+            height: 44px;
+            background-color: #eeeeee;
+        }
+        .likegoods {
+            width: 100%;
+            height: 350px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            span {
+                text-align: center;
+                width: 30px;
+                height: 30px;
+                font-size: 20px;
+                color: #eeeeee;
+                background-color: #cc9875;
+                border-radius: 99999px;
+            }
+            .lgood {
+                width: 960px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                overflow: hidden;
+                li {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-around;
+                    align-items: center;
+                }
+            }
+        }
+    }
+}

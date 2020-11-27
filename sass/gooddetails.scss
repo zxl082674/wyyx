@@ -1,0 +1,105 @@
+.main {
+    width: 1090px;
+    margin: 0px auto;
+    padding-bottom: 30px;
+    ul {
+        padding: 20px 0;
+        border-top: 1px solid #eee;
+        li {
+            float: left;
+            font-size: 12px;
+            margin-right: 5px;
+            cursor: pointer;
+        }
+        .l1:hover {
+            border-bottom: 1px solid #333;
+        }
+    }
+    .detailHd {
+        width: 100%;
+        height: 564px;
+        position: relative;
+        .slide {
+            width: 430px;
+            height: 100%;
+            float: left;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            .minBox {
+                width: 430px;
+                height: 430px;
+                overflow: hidden;
+                position: relative;
+                .mask {
+                    width: 175px;
+                    height: 175px;
+                    background-color: orange;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    opacity: 0.4;
+                    cursor: move;
+                    display: none;
+                    z-index: 90;
+                }
+                div {
+                    display: none;
+                }
+                .show {
+                    display: block;
+                }
+                img {
+                    width: 430px;
+                    height: 430px;
+                }
+            }
+            .active {
+                border: 2px solid #333;
+            }
+            .tab {
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                height: 78px;
+                li {
+                    width: 78px;
+                    height: 78px;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
+            span {
+                width: 130px;
+                height: 28px;
+                line-height: 28px;
+                color: #b4a078;
+                border: 1px solid #b4a078;
+                font-size: 14px;
+                text-align: center;
+            }
+        }
+        .maxBox {
+            width: 430px;
+            height: 430px;
+            // background: #eee;
+            position: absolute;
+            top: 0;
+            left: 440px;
+            overflow: hidden;
+            img {
+                width: 800px;
+                height: 800px;
+                display: none;
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+        }
+        .detailCl {
+            cursor: pointer;
+        }
+    }
+}
