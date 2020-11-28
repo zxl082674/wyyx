@@ -4,10 +4,9 @@ $(function() {
     if (localStorage.getItem('goods')) { // 有数据
         // 获取本地存储中购物车的数据
         var goodsArr = JSON.parse(localStorage.getItem('goods'))
-
-        // 获取数据
+            // 获取数据
         $.ajax({
-            url: '../data/goods.json',
+            url: './../data/goods.json',
             type: 'get',
             dataType: 'json',
             success: function(json) {
@@ -30,7 +29,7 @@ $(function() {
                         }
                     })
                 })
-                $('.list').html(domStr)
+                $('.list').append(domStr)
             }
         })
 
@@ -41,7 +40,7 @@ $(function() {
 
             // 更新本地存储中的数据
             var code = $(this).attr('code') // 要删除商品的编号
-                // 删除数组元素：pop()  unshift()  splice(index,1)
+                // 删除数组元素：pop()  shift()  splice(index,1)
             $.each(goodsArr, function(index, item) {
                 if (item.code === code) {
                     goodsArr.splice(index, 1)

@@ -43,68 +43,46 @@ $('.main .allgoods .allHeader .change2').click(function() {
 })
 
 //渲染
-$(function() {
 
-    // 获取商品列表数据
-    $.ajax({
-        url: '../data/goodslist.json',
-        type: 'get',
-        dataType: 'json',
-        success: function(json) {
-            // console.log(json)
-            var goodsStr = ''
-            $.each(json, function(index, item) {
-                //         goodsStr += `<div class="goods">
-                //     <img src="${item.imgurl}" alt="">
-                //     <p>${item.price}</p>
-                //     <h3>${item.title}</h3>
-                //     <div code="${item.code}">加入购物车</div>
-                //   </div>`
-            })
-            $('.pgright div').html(goodsStr)
-        }
-    })
+// 获取商品列表数据
+$.ajax({
+    url: './../data/list.json',
+    type: 'get',
+    dataType: 'json',
+    success: function(json) {
+        // console.log(json)
+        var goodsStr = ''
+        $.each(json, function(index, item) {
+            goodsStr += `<div class="pgright">
+                        <div class="pgr">
+                        <div><img src="${item.imgurl1}" alt=""></div>
+                        <div class="commonBottom">
+                            <span>${item.span1}</span>
+                            <span>${item.span2}</span>
+                            <span>${item.span3}</span>
+                        </div>
+                    </div>
+                    <div class="pgr">
+                        <div><img src="${item.imgurl2}" alt=""></div>
+                        <div class="commonBottom">
+                            <span>${item.span1}</span>
+                            <span>${item.span2}</span>
+                            <span>${item.span3}</span>
+                        </div>
+                    </div>
+                </div>`
+        })
+        $('.pgoods').append(goodsStr)
+    }
+})
+if (localStorage.getItem('goods')) {
+    var goodsArr = JSON.parse(localStorage.getItem('goods'))
+} else {
+    var goodsArr = []
+}
 
-    // 点击加入购物车
-    $('.pgright div').on('click', '.commonBottom', function() {
-        // 获取当前点击商品的编号
-        var code = $(this).attr('code')
+localStorage.setItem('goods', JSON.stringify(goodsArr))
 
-        // localStorage  key = value
-        //  goods = [{code:'abc1',num:1},{code:'abc2',num:2}]
-        // 判断本地存储是否有数据
-        if (localStorage.getItem('goods')) {
-            var goodsArr = JSON.parse(localStorage.getItem('goods'))
-        } else {
-            var goodsArr = []
-        }
-
-        var hasGoods = false
-
-        if (goodsArr.length > 0) {
-            // 判断当前选中商品是否在购物车中
-            $.each(goodsArr, function(index, item) {
-                console.log(index)
-                console.log(item)
-                if (item.code === code) { // 商品存在购物车中，数量+1
-                    item.num++
-                        hasGoods = true
-                    return false
-                }
-            })
-        }
-
-        // 如果购物车没有当前选中的商品，添加一条数据
-        if (!hasGoods) {
-            // var objStr = JSON.stringify({code:code,num:1})
-            goodsArr.push({ code: code, num: 1 })
-        }
-
-        // 更新本地存储的数据
-        localStorage.setItem('goods', JSON.stringify(goodsArr))
-
-        alert('添加购物车成功')
-
-    })
-
+$('.pgoods').on('click', '.pgright .pgr', function() {
+    location.href = './gooddetails.html'
 })
