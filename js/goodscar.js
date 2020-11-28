@@ -13,15 +13,15 @@ $(function() {
                 var domStr = ''
                 $.each(goodsArr, function(index, item) {
                     $.each(json, function(ind, obj) {
-                        if (item.code === obj.code) {
-                            domStr += `
+                        if (item.code == obj.code) {
+                            domStr += ` 
                 <li>
                 <img src="${obj.imgurl}" alt="">
                 <h3>${obj.title}</h3>
                 <p>${obj.price}</p>
-                <div> <i class="add" code="${obj.code}">+</i>
-                    <span>${item.num}</span>
-                    <i class="minus" code="${obj.code}">-</i>
+                <div> <i class="minus" code="${obj.code}">-</i>
+                    <span class='shownum'>${item.num}</span>
+                    <i class="add" code="${obj.code}">+</i>
                 </div>
                 <em code="${obj.code}">删除</em>
             </li> 
@@ -29,9 +29,41 @@ $(function() {
                         }
                     })
                 })
-                $('.list').append(domStr)
+                $('.list').html(domStr)
             }
         })
+
+        //点击加号
+        $('.list').on('click', 'li .add', function() {
+                var code = $(this).attr('code') // 要删除商品的编号
+                $.each(goodsArr, function(index, item) {
+                    if (item.code == code) {
+                        item.num++;
+                        $('.shownum').html(item.num)
+                    }
+                })
+
+                localStorage.setItem('goods', JSON.stringify(goodsArr))
+            })
+            //点击减号
+        $('.list').on('click', 'li .minus', function() {
+            var code = $(this).attr('code') // 要减少商品的编号
+            $.each(goodsArr, function(index, item) {
+                if (item.code == code) {
+                    item.num--;
+
+                    if (item.num <= 1) {
+                        alert('商品最小数量为一件')
+                        item.num = 1
+                    }
+                    $('.shownum').html(item.num)
+
+                }
+            })
+            localStorage.setItem('goods', JSON.stringify(goodsArr))
+        })
+
+
 
         // 商品移出购物车
         $('.list').on('click', 'li em', function() {
@@ -42,7 +74,7 @@ $(function() {
             var code = $(this).attr('code') // 要删除商品的编号
                 // 删除数组元素：pop()  shift()  splice(index,1)
             $.each(goodsArr, function(index, item) {
-                if (item.code === code) {
+                if (item.code == code) {
                     goodsArr.splice(index, 1)
                     return false
                 }
@@ -55,7 +87,7 @@ $(function() {
             } else {
                 // 清除本地数据
                 localStorage.removeItem('goods')
-                var nodata = '<li style="line-height: 70px; text-align: center;">购物车暂无数据！</li>'
+                var nodata = '<li style="line-height: 200px; text-align: center; background:#eee;">购物车暂无数据！</li>'
                 $('.list').html(nodata)
             }
 

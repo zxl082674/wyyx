@@ -22,8 +22,8 @@ $(function() {
             return;
         } else {
             localStorage.setItem({
-                'user': us,
-                'pass': ps
+                'user': JSON.stringify(us),
+                'pass': JSON.stringify(ps)
             })
             alert('注册成功，请重新登录')
             $('.user').val() = ''

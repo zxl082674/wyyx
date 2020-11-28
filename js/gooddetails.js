@@ -62,7 +62,8 @@ $.ajax({
 })
 $('.detailCt').click(function() {
     // 获取当前点击商品的编号
-    var code = 1
+    var code = parseInt(Math.random() * 8 + 1)
+        // console.log(code);
     var hasGoods = false
     if (localStorage.getItem('goods')) {
         var goodsArr = JSON.parse(localStorage.getItem('goods'))

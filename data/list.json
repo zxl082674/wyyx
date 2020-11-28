@@ -1,5 +1,5 @@
 [
-    { "imgurl1": "../img/pg2.webp", "imgurl2": "../img/pg3.webp", "span1": "新人特价", "span2": "包邮男式咖啡碳保暖内衣", "span3": "￥20", "code": "1" },
-    { "imgurl1": "../img/pg3.webp", "imgurl2": "../img/pg3.webp", "span1": "新人特价", "span2": "包邮男式咖啡碳保暖内衣", "span3": "￥80", "code": "2" },
-    { "imgurl1": "../img/pg3.webp", "imgurl2": "../img/pg2.webp", "span1": "新人特价", "span2": "包邮男式咖啡碳保暖内衣", "span3": "￥60", "code": "3" }
+    { "imgurl1": "../img/pg2.webp", "imgurl2": "../img/pg3.webp", "span1": "新人特价", "span2": "包邮男式咖啡碳保暖内衣", "span3": "￥20", "code": 1 },
+    { "imgurl1": "../img/pg3.webp", "imgurl2": "../img/pg3.webp", "span1": "新人特价", "span2": "包邮男式咖啡碳保暖内衣", "span3": "￥80", "code": 2 },
+    { "imgurl1": "../img/pg3.webp", "imgurl2": "../img/pg2.webp", "span1": "新人特价", "span2": "包邮男式咖啡碳保暖内衣", "span3": "￥60", "code": 3 }
 ]
